@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct WatchlistApp: App {
+    
+    @StateObject var movieViewModel: MovieViewModel = MovieViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ListView()
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .environmentObject(movieViewModel)
         }
     }
 }
